@@ -1,0 +1,434 @@
+{
+	"info": {
+		"_postman_id": "0163d504-6a55-4613-b68a-06e1acb8e26c",
+		"name": "Delilah Restó API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Registro de Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullname\": \"Freddy Mercury\",\r\n    \"username\": \"queen_freddie\",\r\n    \"email\": \"freddiemercury@gmail.com\",\r\n    \"phone\": \"+44 771 234 56 78\",\r\n    \"adress\": \"1 Logan PIKensington, London W8 6DE, UK\",\r\n    \"password\": \"Qu3enFr3ddy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_URL}}/signin",
+							"host": [
+								"{{base_URL}}"
+							],
+							"path": [
+								"signin"
+							]
+						},
+						"description": "Registro de usuario."
+					},
+					"response": []
+				},
+				{
+					"name": "Ingreso de Usuarios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"real-user\",\r\n    \"password\": \"R3alUs3r\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_URL}}/login",
+							"host": [
+								"{{base_URL}}"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "Ingreso de usuarios generales y/o administrador."
+					},
+					"response": []
+				},
+				{
+					"name": "Ingreso de Usuario Administrativo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin@delilahresto.dr\",\r\n    \"password\": \"D3lilahR3st0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_URL}}/login",
+							"host": [
+								"{{base_URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "Consulta de Productos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin_token}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "{{user_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_URL}}/product",
+							"host": [
+								"{{base_URL}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta de Productos por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_URL}}/product/:id",
+							"host": [
+								"{{base_URL}}"
+							],
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar producto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{user_token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ensalada Veggie\",\r\n    \"description\": \"Deliciosa ensalada, ideal para la hora de la cena.\",\r\n    \"photo\": \"http://dummyimage.com/200x247.bmp/5fa2dd/ffffff\",\r\n    \"price\": \"340\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_URL}}/product",
+							"host": [
+								"{{base_URL}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificación de productos",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Foccacia\",\r\n    \"description\": \"Deliciosa Foccacia, ideal para la hora de la cena\",\r\n    \"photo\": \"http://dummyimage.com/200x247.bmp/5fa2dd/ffffff\",\r\n    \"price\": \"300\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_URL}}/product/:id",
+							"host": [
+								"{{base_URL}}"
+							],
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminación de producto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{admin_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_URL}}/product/:id",
+							"host": [
+								"{{base_URL}}"
+							],
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Ordenes",
+			"item": [
+				{
+					"name": "Obtener ordenes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin_token}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "{{user_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_URL}}/orders",
+							"host": [
+								"{{base_URL}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener ordenes por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{user_token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_URL}}/orders/:id",
+							"host": [
+								"{{base_URL}}"
+							],
+							"path": [
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar orden",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{user_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order_products\": [\r\n        {\r\n            \"prod_id\": 3,\r\n            \"qty\": 3\r\n        },\r\n        {\r\n            \"prod_id\": 1,\r\n            \"qty\": 1\r\n        }\r\n    ],\r\n    \"payment\": \"Débito\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_URL}}/orders",
+							"host": [
+								"{{base_URL}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar estado de la orden",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"state\": \"Entregado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_URL}}/orders/:id",
+							"host": [
+								"{{base_URL}}"
+							],
+							"path": [
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminación de ordenes",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_URL}}/orders/:id",
+							"host": [
+								"{{base_URL}}"
+							],
+							"path": [
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
