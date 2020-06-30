@@ -1,0 +1,33 @@
+{
+  "name": "delilah-resto",
+  "version": "1.0.0",
+  "description": "Delilah Restó es un proyecto de BackEnd dedicado a la creación y funcionamiento de una RestfullAPI. Creado para Acamica DWFS-BOG-GLOB01 2020",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GisellG/Delilah-resto-v1.0.git"
+  },
+  "keywords": [
+    "#learning",
+    "nodejs",
+    "javascript",
+    "database"
+  ],
+  "author": "GisellG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GisellG/Delilah-resto-v1.0/issues"
+  },
+  "homepage": "https://github.com/GisellG/Delilah-resto-v1.0#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.1.0",
+    "nodemon": "^2.0.4",
+    "sequelize": "^6.2.3"
+  }
+}
